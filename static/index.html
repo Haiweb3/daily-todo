@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日计划表</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-left">
+                <span class="logo">🗓️</span>
+                <h1>每日计划表</h1>
+            </div>
+            <div class="header-right">
+                <span class="current-date" id="currentDate"></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- 日历区域 -->
+            <section class="calendar-section">
+                <div class="calendar-header">
+                    <button class="nav-btn" id="prevMonth">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"></polyline>
+                        </svg>
+                    </button>
+                    <h2 id="calendarTitle">2026年1月</h2>
+                    <button class="nav-btn" id="nextMonth">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,6 15,12 9,18"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div class="calendar-weekdays">
+                    <span>日</span>
+                    <span>一</span>
+                    <span>二</span>
+                    <span>三</span>
+                    <span>四</span>
+                    <span>五</span>
+                    <span>六</span>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+                
+                <!-- 月度统计 -->
+                <div class="monthly-stats" id="monthlyStats">
+                    <div class="stat-item">
+                        <span class="stat-label">本月任务</span>
+                        <span class="stat-value" id="totalTasks">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">已完成</span>
+                        <span class="stat-value completed" id="completedTasks">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">完成率</span>
+                        <span class="stat-value" id="completionRate">0%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 任务列表区域 -->
+            <section class="tasks-section">
+                <div class="tasks-header">
+                    <h2>
+                        <span id="selectedDateIcon">📋</span>
+                        <span id="selectedDateText">今日任务</span>
+                    </h2>
+                    <span class="task-count" id="taskCount">0 项任务</span>
+                </div>
+
+                <!-- 添加任务 -->
+                <div class="add-task-container">
+                    <input type="text" id="newTaskInput" placeholder="添加新任务..." autocomplete="off">
+                    <select id="taskPriority">
+                        <option value="normal">普通</option>
+                        <option value="important">重要</option>
+                        <option value="urgent">紧急</option>
+                    </select>
+                    <button class="add-btn" id="addTaskBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 任务列表 -->
+                <div class="tasks-list" id="tasksList">
+                    <div class="empty-state" id="emptyState">
+                        <span class="empty-icon">📝</span>
+                        <p>还没有任务</p>
+                        <span class="empty-hint">添加一个任务开始你的一天吧！</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 编辑任务模态框 -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>编辑任务</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editTaskInput" placeholder="任务内容">
+                <select id="editTaskPriority">
+                    <option value="normal">普通</option>
+                    <option value="important">重要</option>
+                    <option value="urgent">紧急</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" id="cancelEdit">取消</button>
+                <button class="btn-save" id="saveEdit">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

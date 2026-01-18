@@ -1,0 +1,12 @@
+{
+  "date": "2026-01-16",
+  "tasks": [
+    {
+      "text": "Test Task for Migration",
+      "id": "20260117220718223758",
+      "completed": false,
+      "createdAt": "2026-01-17T22:07:18.223767"
+    }
+  ],
+  "migrated": true
+}

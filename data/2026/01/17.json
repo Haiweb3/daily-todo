@@ -1,0 +1,62 @@
+{
+  "date": "2026-01-17",
+  "tasks": [
+    {
+      "content": "还有用vibe coding开发，Binance模拟交易",
+      "priority": "normal",
+      "id": "20260117110808430440",
+      "completed": true,
+      "createdAt": "2026-01-17T11:08:08.430595"
+    },
+    {
+      "content": "分析思考，价格行为",
+      "priority": "normal",
+      "id": "20260117110823535439",
+      "completed": false,
+      "createdAt": "2026-01-17T11:08:23.535505"
+    },
+    {
+      "content": "分析思考，人际交往",
+      "priority": "normal",
+      "id": "20260117110825665236",
+      "completed": false,
+      "createdAt": "2026-01-17T11:08:25.665300"
+    },
+    {
+      "content": "英语资料收集",
+      "priority": "normal",
+      "id": "20260117110832799327",
+      "completed": false,
+      "createdAt": "2026-01-17T11:08:32.799359"
+    },
+    {
+      "content": "今天要学Git，Book map.Go语言基础复习",
+      "priority": "normal",
+      "id": "20260117110840164025",
+      "completed": false,
+      "createdAt": "2026-01-17T11:08:40.164058"
+    },
+    {
+      "content": "leetcode hot100资料",
+      "priority": "normal",
+      "id": "20260117150251441798",
+      "completed": true,
+      "createdAt": "2026-01-17T15:02:51.441850"
+    },
+    {
+      "content": "练习公众表达",
+      "priority": "normal",
+      "id": "20260117220252951528",
+      "completed": false,
+      "createdAt": "2026-01-17T22:02:52.951611"
+    },
+    {
+      "text": "Test Task for Migration",
+      "id": "20260117220718223758",
+      "completed": false,
+      "createdAt": "2026-01-17T22:07:18.223767",
+      "from_date": "2026-01-16"
+    }
+  ],
+  "migrated": true
+}
