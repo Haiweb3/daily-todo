@@ -55,15 +55,15 @@ def find_task_file(date_str):
 
     return None, canonical_path
 
-def load_tasks(date_str):
-    """加载指定日期的任务，并尝试从前一天迁移未完成的任务"""
+def load_tasks(date_str, auto_save=True):
+    """加载指定日期的任务"""
     path, canonical_path = find_task_file(date_str)
-    
+
     if path and os.path.exists(path):
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         data['date'] = date_str
-        
+
         # 兼容旧路径
         if canonical_path and path != canonical_path:
             save_tasks(date_str, data)
@@ -72,44 +72,8 @@ def load_tasks(date_str):
             except OSError:
                 pass
     else:
-        data = {'date': date_str, 'tasks': [], 'migrated': False}
-
-    # 检查是否需要迁移
-    if not data.get('migrated', False):
-        try:
-            current_date = parse_date(date_str)
-            if current_date:
-                yesterday = current_date - timedelta(days=1)
-                yesterday_str = yesterday.strftime(DATE_FORMAT)
-                
-                # 加载昨天的任务（注意：这里调用load_tasks可能会递归，但只会向前一天，所以有限递归）
-                # 为了避免无限递归或复杂逻辑，这里只简单读取昨天的文件，不调用load_tasks
-                y_path, _ = find_task_file(yesterday_str)
-                if y_path and os.path.exists(y_path):
-                    with open(y_path, 'r', encoding='utf-8') as f:
-                        y_data = json.load(f)
-                    
-                    migrated_count = 0
-                    for task in y_data.get('tasks', []):
-                        if not task.get('completed', False):
-                            # 检查是否已经存在（根据ID）
-                            if not any(t['id'] == task['id'] for t in data['tasks']):
-                                # 复制任务，添加迁移标记
-                                new_task = task.copy()
-                                new_task['from_date'] = yesterday_str
-                                data['tasks'].append(new_task)
-                                migrated_count += 1
-                    
-                    if migrated_count > 0:
-                        print(f"Migrated {migrated_count} tasks from {yesterday_str} to {date_str}")
-
-        except Exception as e:
-            print(f"Error migrating tasks: {e}")
-        
-        # 标记已迁移，避免重复检查
-        data['migrated'] = True
-        if canonical_path: # 确保有路径可存
-             save_tasks(date_str, data)
+        # 新日期，返回空任务列表，不自动迁移
+        data = {'date': date_str, 'tasks': []}
 
     return data
 
