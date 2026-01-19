@@ -88,8 +88,14 @@ async function renderCalendar() {
     const daysInMonth = lastDay.getDate();
     const startDay = firstDay.getDay(); // 0 is Sunday
 
+    // Show loading state
+    elements.calendarGrid.classList.add('loading');
+
     // 获取本月统计数据用于标记
     const stats = await fetchMonthlyStats(year, (month + 1).toString().padStart(2, '0'));
+
+    // Hide loading state
+    elements.calendarGrid.classList.remove('loading');
 
     // 填充空白天数
     for (let i = 0; i < startDay; i++) {
