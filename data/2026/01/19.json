@@ -37,46 +37,11 @@
       "createdAt": "2026-01-19T04:18:05.853867"
     },
     {
-      "content": "Valid task",
+      "content": "整理思考",
       "priority": "normal",
-      "id": "20260119085032357635",
+      "id": "20260119172423892647",
       "completed": false,
-      "createdAt": "2026-01-19T08:50:32.357804"
-    },
-    {
-      "content": "Invalid priority",
-      "priority": "invalid_value",
-      "id": "20260119085032364758",
-      "completed": false,
-      "createdAt": "2026-01-19T08:50:32.364772"
-    },
-    {
-      "content": "",
-      "priority": "normal",
-      "id": "20260119085032371573",
-      "completed": false,
-      "createdAt": "2026-01-19T08:50:32.371591"
-    },
-    {
-      "content": "Valid task",
-      "priority": "normal",
-      "id": "20260119085215062891",
-      "completed": false,
-      "createdAt": "2026-01-19T08:52:15.063109"
-    },
-    {
-      "content": "Invalid priority",
-      "priority": "invalid_value",
-      "id": "20260119085215067169",
-      "completed": false,
-      "createdAt": "2026-01-19T08:52:15.067181"
-    },
-    {
-      "content": "",
-      "priority": "normal",
-      "id": "20260119085215070021",
-      "completed": false,
-      "createdAt": "2026-01-19T08:52:15.070349"
+      "createdAt": "2026-01-19T17:24:23.892724"
     }
   ],
   "migrated": true

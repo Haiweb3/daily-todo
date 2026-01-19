@@ -46,7 +46,6 @@ function init() {
         dateStr: formatDate(now)
     });
 
-    renderCalendar();
     selectDate(now);
     setupEventListeners();
     updateDateDisplay();
@@ -81,8 +80,6 @@ async function renderCalendar() {
     const month = currentDate.getMonth();
 
     elements.calendarTitle.textContent = `${year}年 ${month + 1}月`;
-    elements.calendarGrid.innerHTML = '';
-
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
     const daysInMonth = lastDay.getDate();
@@ -93,6 +90,8 @@ async function renderCalendar() {
 
     // 获取本月统计数据用于标记
     const stats = await fetchMonthlyStats(year, (month + 1).toString().padStart(2, '0'));
+
+    elements.calendarGrid.innerHTML = '';
 
     // Hide loading state
     elements.calendarGrid.classList.remove('loading');
